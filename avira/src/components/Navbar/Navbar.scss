@@ -1,0 +1,56 @@
+.site-header {
+  display: flex;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  padding: 1rem 2rem;
+  align-items: center;
+  a {
+    transition: ease-in-out 0.25s color;
+    &:hover {
+      color: #db6b97;
+    }
+  }
+  &__links {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+
+    li {
+      &:not(:last-of-type) {
+        margin-right: 2.5rem;
+      }
+    }
+  }
+
+  &__col {
+    width: 33.33%;
+
+    &--right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      img {
+        margin-right: 0.5rem;
+      }
+
+      a:not(:last-of-type) {
+        margin-right: 1.2rem;
+      }
+      .icon-link {
+        display: flex;
+        align-items: center;
+        color: #db6b97;
+        img {
+          height: 20px;
+        }
+        &--login {
+          font-weight: 600;
+
+          img {
+            height: 17px;
+          }
+        }
+      }
+    }
+  }
+}

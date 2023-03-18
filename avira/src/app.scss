@@ -1,0 +1,20 @@
+.app {
+  max-width: 1680px;
+  margin: auto;
+
+  .site-logo {
+    height: 70px;
+  }
+
+  a {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    color: #2d2d2d;
+    text-decoration: none;
+  }
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}

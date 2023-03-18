@@ -1,0 +1,22 @@
+.footer {
+  background-color: #db6b97;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+
+  &__logos {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    img {
+      height: 25px;
+    }
+
+    a:first-of-type {
+      margin-right: 0.5rem;
+    }
+  }
+}
