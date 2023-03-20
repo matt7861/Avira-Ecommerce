@@ -1,35 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
+import { Card } from "../Card/Card";
 import "./Categories.scss";
 
 export const Categories = () => {
+  const { data, loading, error } = useFetch("/categories?populate=*");
   return (
-    <div className="categories">
-      <div className="container">
-        <div className="row">
-          <div className="categories__col categories__col--left">
-            <Link className="categories__item" to={"/shop/men"}>
-              <img src="" alt="" />
-            </Link>
-            <Link className="categories__item" to={"/shop/men"}>
-              <img src="" alt="" />
-            </Link>
-          </div>
-          <div className="categories__col categories__col--right">
-            <Link className="categories__item" to={"/shop/men"}>
-              <img src="" alt="" />
-            </Link>
-            <Link className="categories__item" to={"/shop/men"}>
-              <img src="" alt="" />
-            </Link>
-            <Link className="categories__item" to={"/shop/men"}>
-              <img src="" alt="" />
-            </Link>
-            <Link className="categories__item" to={"/shop/men"}>
-              <img src="" alt="" />
-            </Link>
-          </div>
-        </div>
+    <div className="featured-products">
+      <div className="featured-products__row">
+        {loading
+          ? "loading"
+          : data?.map((product, index) => {
+              return <Card item={product} key={index} />;
+            })}
       </div>
     </div>
   );

@@ -1,28 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./FeaturedProducts.scss";
-import axios from "axios";
+import { Card } from "../Card/Card";
+import useFetch from "../../hooks/useFetch";
 
 export const FeaturedProducts = () => {
-  const [products, setProducts] = useState([]);
+  const { data, loading, error } = useFetch(
+    "/products?populate=*&[filters][type][$eq]=featured&pagination[limit]=4"
+  );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          import.meta.env.VITE_API_URL + "/products",
-          {
-            headers: {
-              Authorization: "bearer " + import.meta.env.VITE_API_TOKEN,
-            },
-          }
-        );
-        setProducts(res.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  return <div className="featured-products">FeaturedProducts</div>;
+  return (
+    <div className="featured-products">
+      <div className="featured-products__row">
+        {loading
+          ? "loading"
+          : data?.map((product, index) => {
+              return <Card item={product} key={index} />;
+            })}
+      </div>
+    </div>
+  );
 };
