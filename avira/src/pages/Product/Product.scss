@@ -1,0 +1,15 @@
+.single-product {
+  &__container {
+    display: flex;
+  }
+  &__left-col,
+  &__right-col {
+    width: 50%;
+  }
+  &__left-col {
+    display: flex;
+  }
+  &__featured {
+    width: 100%;
+  }
+}

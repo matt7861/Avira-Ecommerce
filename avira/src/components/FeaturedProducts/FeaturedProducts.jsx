@@ -10,6 +10,7 @@ export const FeaturedProducts = () => {
 
   return (
     <div className="featured-products">
+      <h3>FEATURED PRODUCTS</h3>
       <div className="featured-products__row">
         {loading
           ? "loading"

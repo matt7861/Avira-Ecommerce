@@ -1,0 +1,30 @@
+.card {
+  width: 25%;
+  span {
+    display: block;
+  }
+  &__image {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  &__brand {
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+  &__title {
+    margin-bottom: 0.75rem;
+  }
+  &__price,
+  &__title {
+    font-size: 1rem;
+    line-height: 1.3rem;
+  }
+  &__price {
+    color: #db6b97;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+}
