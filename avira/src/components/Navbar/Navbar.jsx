@@ -6,6 +6,7 @@ import cart from "../../assets/cart.svg";
 import search from "../../assets/search.svg";
 import user from "../../assets/user.svg";
 import "./Navbar.scss";
+import { Cart } from "../Cart/Cart";
 
 export const Navbar = () => {
   return (
@@ -46,6 +47,7 @@ export const Navbar = () => {
           <span>2</span>
         </Link>
       </div>
+      <Cart />
     </header>
   );
 };

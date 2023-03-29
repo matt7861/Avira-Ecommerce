@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import { addToCart } from "../../redux/cartReducer";
 import "./Product.scss";
 
 export const Product = () => {
@@ -8,7 +10,7 @@ export const Product = () => {
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
   const [featuredImage, setFeaturedImage] = useState("img");
   const [quantity, setQuantity] = useState(1);
-
+  const dispatch = useDispatch();
   const decreaseQuantity = () => {
     quantity > 1 ? setQuantity((prev) => prev - 1) : 1;
   };
@@ -62,7 +64,23 @@ export const Product = () => {
               <span>{quantity}</span>
               <button onClick={increaseQuantity}>+</button>
             </div>
-            <button className="add-to-cart">ADD TO CART</button>
+
+            <button
+              className="add-to-cart"
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    id: data.id,
+                    title: data?.attributes?.title,
+                    desc: data?.attributes?.desc,
+                    quantity: quantity,
+                    price: data?.attributes?.price,
+                  })
+                )
+              }
+            >
+              ADD TO CART
+            </button>
             <button>ADD TO WISHLIST</button>
             <div className="info"></div>
           </div>
