@@ -7,6 +7,7 @@ import search from "../../assets/search.svg";
 import user from "../../assets/user.svg";
 import "./Navbar.scss";
 import { Cart } from "../Cart/Cart";
+import { Wishlist } from "../Wishlist/Wishlist";
 
 export const Navbar = () => {
   return (
@@ -48,6 +49,7 @@ export const Navbar = () => {
         </Link>
       </div>
       <Cart />
+      <Wishlist />
     </header>
   );
 };

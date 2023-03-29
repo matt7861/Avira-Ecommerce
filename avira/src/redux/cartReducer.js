@@ -4,7 +4,7 @@ const initialState = {
   products: [],
 };
 
-export const cartSlice = createSlice({
+const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
@@ -17,7 +17,6 @@ export const cartSlice = createSlice({
       } else {
         state.products.push(action.payload);
       }
-      console.log(action);
     },
     removeItem: (state, action) => {
       state.products = state.products.filter(

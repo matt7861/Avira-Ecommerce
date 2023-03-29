@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { addToCart } from "../../redux/cartReducer";
+import { addToWishlist } from "../../redux/wishlistReducer";
 import "./Product.scss";
 
 export const Product = () => {
@@ -81,7 +82,20 @@ export const Product = () => {
             >
               ADD TO CART
             </button>
-            <button>ADD TO WISHLIST</button>
+            <button
+              onClick={() =>
+                dispatch(
+                  addToWishlist({
+                    id: data.id,
+                    title: data?.attributes?.title,
+                    desc: data?.attributes?.desc,
+                    price: data?.attributes?.price,
+                  })
+                )
+              }
+            >
+              ADD TO WISHLIST
+            </button>
             <div className="info"></div>
           </div>
         </div>
